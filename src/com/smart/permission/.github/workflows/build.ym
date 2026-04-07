@@ -1,0 +1,29 @@
+name: Build AIX
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '8'
+
+      - name: Build
+        run: |
+          mkdir output
+          zip -r output/PermissionHelper.aix src build.json
+
+      - name: Upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: extension
+          path: output/PermissionHelper.aix
