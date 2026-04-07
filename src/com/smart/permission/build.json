@@ -1,0 +1,6 @@
+{
+  "name": "PermissionHelper",
+  "package": "com.smart.permission",
+  "version": 2,
+  "description": "Smart Bluetooth Permission Checker"
+}
